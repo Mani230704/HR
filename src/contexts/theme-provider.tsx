@@ -19,13 +19,15 @@ export function useTheme() {
   }, [])
 
   if (!mounted) {
-    // Return default or placeholder values until mounted to avoid hydration mismatch
-    // For system theme, this might mean returning undefined for theme until client-side detection
+    // Return default or placeholder values until mounted to avoid hydration mismatch.
+    // These values should match the structure returned by useNextTheme.
     return {
-      theme: props.defaultTheme === "system" ? undefined : props.defaultTheme, // or a sensible default
+      theme: undefined, // `theme` can be undefined initially
       setTheme: () => null, // no-op until mounted
-      resolvedTheme: props.defaultTheme === "system" ? undefined : props.defaultTheme,
-      // ... other properties from useNextTheme if needed, with placeholder values
+      resolvedTheme: undefined, // `resolvedTheme` can be undefined initially
+      themes: [], // Default for themes array
+      systemTheme: undefined, // `systemTheme` can be 'light', 'dark', or undefined
+      forcedTheme: undefined, // `forcedTheme` if a theme is forced by the provider
     }
   }
 
