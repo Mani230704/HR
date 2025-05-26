@@ -1,4 +1,3 @@
-
 // src/app/page.tsx (Dashboard)
 import { getEmployees, getAllDepartments } from '@/lib/api';
 import type { User, DepartmentPerformance } from '@/lib/types';
