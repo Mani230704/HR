@@ -73,41 +73,106 @@ An interactive and responsive HR Performance Dashboard built with **Next.js**, *
 - 🎞️ Animated Tab/Content Transitions with Framer Motion
 
 
+````markdown
 # HR Project Setup Guide
 
+Welcome to the HR project! Follow the steps below to set up and run the project on your local machine.
+
+---
+
+## 📥 Download or Clone the Code
+
+If you haven't already, get the project code from [GitHub](https://github.com/Mani230704/HR):
+
+- **Option 1:** Download the ZIP file and extract it.
+- **Option 2:** Clone the repository using Git:
+  ```bash
+  git clone https://github.com/Mani230704/HR.git
+````
+
+---
+
+## 📂 Navigate to the Project Directory
+
+Open your terminal or command prompt and navigate to the root directory of the project (the one containing `package.json`):
+
 ```bash
-# 📥 Download or Clone the Code
-# If you haven't already, get the project code from https://github.com/Mani230704/HR
-# Option 1: Download the ZIP file and extract it.
-# Option 2: Clone the repository using Git
-git clone https://github.com/Mani230704/HR.git
-
-# 📂 Navigate to the Project Directory
 cd path/to/your-project-directory
+```
 
-# 📦 Install Dependencies
+---
+
+## 📦 Install Dependencies
+
+Run the following command to install all necessary packages defined in `package.json`:
+
+```bash
 npm install
-# Or, if you prefer Yarn:
-# yarn install
+```
 
-# 🚀 Run the Development Server
+> Or, if you prefer using Yarn:
+>
+> ```bash
+> yarn install
+> ```
+
+---
+
+## 🚀 Run the Development Server
+
+Start the **Next.js** application by running:
+
+```bash
 npm run dev
-# This typically starts the app on http://localhost:9002
-# Check the terminal output for the exact address.
+```
 
-# 🧠 Run the Genkit Development Server (for AI Features)
-# Open a new terminal window/tab, navigate to the project directory again:
+This will typically start the app on [http://localhost:9002](http://localhost:9002) (as specified by the `-p 9002` flag in your `dev` script).
+Check your terminal for the exact address.
+
+---
+
+## 🧠 Run the Genkit Development Server (for AI Features)
+
+This application uses **Genkit** for its AI functionalities. To run the Genkit development server:
+
+1️⃣ Open a new terminal window or tab.
+2️⃣ Navigate back to the project directory.
+3️⃣ Run the following command:
+
+```bash
 npm run genkit:dev
-# This starts Genkit tools, often on http://localhost:4000
-# This needs to run alongside the Next.js app to use AI-powered features.
+```
 
-# 📝 Summary
-# Terminal 1:
-npm install  # (Run once initially)
-npm run dev  # Starts the Next.js app
-# Terminal 2:
-npm run genkit:dev  # Starts the Genkit server
+This will start the Genkit tools, typically on [http://localhost:4000](http://localhost:4000) or another port.
+This server needs to run **alongside** the Next.js app if you want to use the AI-powered features.
 
-# After completing these steps, open your browser and visit http://localhost:9002
-# The Next.js server usually auto-reloads when code changes.
+---
+
+## 📝 Summary
+
+* **Terminal 1:**
+
+  ```bash
+  npm install   # (Run only once initially)
+  npm run dev   # Starts the Next.js app
+  ```
+* **Terminal 2:**
+
+  ```bash
+  npm run genkit:dev   # Starts the Genkit server
+  ```
+
+After completing these steps, open your browser and visit [http://localhost:9002](http://localhost:9002) to see the application running!
+
+If you make changes to the code, the **Next.js** development server will usually auto-reload the page.
+
+---
+
+Happy coding! 💻✨
+
+```
+
+Would you like me to also add **badges** (e.g., for Node version, license, or GitHub stars) to the top of the README?
+```
+
 
