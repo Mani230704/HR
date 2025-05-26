@@ -73,4 +73,41 @@ An interactive and responsive HR Performance Dashboard built with **Next.js**, *
 - 🎞️ Animated Tab/Content Transitions with Framer Motion
 
 
+# HR Project Setup Guide
+
+```bash
+# 📥 Download or Clone the Code
+# If you haven't already, get the project code from https://github.com/Mani230704/HR
+# Option 1: Download the ZIP file and extract it.
+# Option 2: Clone the repository using Git
+git clone https://github.com/Mani230704/HR.git
+
+# 📂 Navigate to the Project Directory
+cd path/to/your-project-directory
+
+# 📦 Install Dependencies
+npm install
+# Or, if you prefer Yarn:
+# yarn install
+
+# 🚀 Run the Development Server
+npm run dev
+# This typically starts the app on http://localhost:9002
+# Check the terminal output for the exact address.
+
+# 🧠 Run the Genkit Development Server (for AI Features)
+# Open a new terminal window/tab, navigate to the project directory again:
+npm run genkit:dev
+# This starts Genkit tools, often on http://localhost:4000
+# This needs to run alongside the Next.js app to use AI-powered features.
+
+# 📝 Summary
+# Terminal 1:
+npm install  # (Run once initially)
+npm run dev  # Starts the Next.js app
+# Terminal 2:
+npm run genkit:dev  # Starts the Genkit server
+
+# After completing these steps, open your browser and visit http://localhost:9002
+# The Next.js server usually auto-reloads when code changes.
 
