@@ -1,6 +1,5 @@
 
 import type { User, UsersApiResponse } from './types';
-
 const API_BASE_URL = 'https://dummyjson.com';
 
 // Helper to generate mock data
