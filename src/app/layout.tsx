@@ -5,7 +5,6 @@ import { ThemeProvider } from '@/contexts/theme-provider';
 import { QueryProvider } from '@/contexts/query-provider';
 import { Toaster } from "@/components/ui/toaster";
 import { AppLayout } from '@/components/layout/AppLayout';
-
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
