@@ -98,7 +98,6 @@ Open your terminal or command prompt and navigate to the root directory of the p
 cd path/to/your-project-directory
 ```
 
----
 
 ## 📦 Install Dependencies
 
@@ -164,7 +163,6 @@ After completing these steps, open your browser and visit [http://localhost:9002
 
 If you make changes to the code, the **Next.js** development server will usually auto-reload the page.
 
----
 
 Happy coding! 💻✨
 
