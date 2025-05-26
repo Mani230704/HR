@@ -7,6 +7,7 @@ import { BookmarkTrendsChart } from '@/components/charts/BookmarkTrendsChart';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Star, Bookmark } from 'lucide-react';
 import { unstable_noStore as noStore } from 'next/cache';
+import { useBookmarks } from '@/hooks/useBookmarks'; // Added import
 
 
 // This function would typically fetch bookmarks from a database in a real app.
