@@ -1,12 +1,3 @@
-// use server'
-
-/**
- * @fileOverview AI-powered project assignment suggestions based on employee feedback, role, and skills.
- *
- * - suggestProjectAssignments - A function that suggests project assignments.
- * - SuggestProjectAssignmentsInput - The input type for suggestProjectAssignments.
- * - SuggestProjectAssignmentsOutput - The output type for suggestProjectAssignments.
- */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
