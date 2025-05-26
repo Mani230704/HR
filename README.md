@@ -73,7 +73,6 @@ An interactive and responsive HR Performance Dashboard built with **Next.js**, *
 - 🎞️ Animated Tab/Content Transitions with Framer Motion
 
 
-````markdown
 # HR Project Setup Guide
 
 Welcome to the HR project! Follow the steps below to set up and run the project on your local machine.
@@ -90,7 +89,6 @@ If you haven't already, get the project code from [GitHub](https://github.com/Ma
   git clone https://github.com/Mani230704/HR.git
 ````
 
----
 
 ## 📂 Navigate to the Project Directory
 
