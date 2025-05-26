@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Search, XCircle, Users } from 'lucide-react';
 import { useDebounce } from '@/hooks/useDebounce';
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 
 export default function EmployeesPage() {
   const [searchTerm, setSearchTerm] = useState('');
