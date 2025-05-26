@@ -1,20 +1,15 @@
 
 // src/app/page.tsx (Dashboard)
 import { getEmployees, getAllDepartments } from '@/lib/api';
-import type { User, DepartmentPerformance, DepartmentBookmarkSummary } from '@/lib/types';
+import type { User, DepartmentPerformance } from '@/lib/types';
 import { DepartmentPerformanceChart } from '@/components/charts/DepartmentPerformanceChart';
-import { BookmarkTrendsChart } from '@/components/charts/BookmarkTrendsChart';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Star, Bookmark } from 'lucide-react';
 import { unstable_noStore as noStore } from 'next/cache';
-import { useBookmarks } from '@/hooks/useBookmarks'; // Added import
 
+import { ClientBookmarkTrends } from './ClientBookmarkTrends';
+import { ClientTotalBookmarks } from './ClientTotalBookmarks';
 
-// This function would typically fetch bookmarks from a database in a real app.
-// For this client-side bookmark example, we can't directly get bookmarks on the server for initial render.
-// So, BookmarkTrendsChart will be client-side and use the useBookmarks hook.
-// Or, we pass all employees and let the client component do the aggregation.
-// For now, the server will prepare employee data, and client component will calculate bookmark stats.
 
 async function getDashboardData() {
   noStore(); // Ensure dynamic rendering as data can change
@@ -29,34 +24,8 @@ async function getDashboardData() {
   }).filter(d => d.averageRating > 0); // Only show departments with data
 
 
-  // For bookmark trends, we need client-side data.
-  // This server component will pass all employees to a client component that then uses the useBookmarks hook.
+  // For bookmark trends, client-side data is handled by ClientBookmarkTrends component.
   return { allEmployees, departmentPerformance };
-}
-
-// Client component to handle bookmark calculations
-function ClientBookmarkTrends({ allEmployees }: { allEmployees: User[] }) {
-  "use client";
-  const { bookmarkedUsers, isLoading } = useBookmarks(); // hook for client-side bookmarks
-
-  if (isLoading) {
-    return (
-        <Card>
-            <CardHeader><CardTitle>Bookmark Trends</CardTitle></CardHeader>
-            <CardContent className="h-[300px] flex items-center justify-center"><p>Loading bookmark data...</p></CardContent>
-        </Card>
-    );
-  }
-
-  const departments = Array.from(new Set(allEmployees.map(emp => emp.company.department))).sort();
-  const departmentBookmarkSummary: DepartmentBookmarkSummary[] = departments.map(dept => {
-    const bookmarkedInDept = bookmarkedUsers.filter(bu => 
-      allEmployees.find(emp => emp.id === bu.id && emp.company.department === dept)
-    ).length;
-    return { department: dept, bookmarkCount: bookmarkedInDept };
-  }).filter(d => d.bookmarkCount > 0);
-
-  return <BookmarkTrendsChart data={departmentBookmarkSummary} />;
 }
 
 
@@ -67,14 +36,6 @@ export default async function DashboardPage() {
   const averageCompanyRating = totalEmployees > 0 
     ? parseFloat((allEmployees.reduce((sum, emp) => sum + (emp.performanceRating || 0), 0) / totalEmployees).toFixed(1))
     : 0;
-
-  // For total bookmarks, we need a client component
-  function ClientTotalBookmarks() {
-    "use client";
-    const { bookmarkedUsers, isLoading } = useBookmarks();
-    if (isLoading) return <span className="text-2xl font-bold">...</span>;
-    return <span className="text-2xl font-bold">{bookmarkedUsers.length}</span>;
-  }
 
   return (
     <div className="space-y-6">
